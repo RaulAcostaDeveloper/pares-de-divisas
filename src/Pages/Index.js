@@ -3,16 +3,18 @@ import Header from "../Components/Header";
 import DivisaVsMoneda from "../Components/DivisaVsMoneda";
 import Loading from "../Components/Loading";
 import SelectorMoneda from "../Components/SelectorMoneda";
+import SelectorFecha from "../Components/SelectorFecha";
 import './styles/Index.css';
 const Index = ()=>{
     const [monedas, setMonedas] = useState({});
     const [selectorMoneda, setSelectorMoneda] = useState('USD');
+    const [selectorFecha, setSelectorFecha]=useState('');
     const [nombresMoneda, setNombresMoneda] = useState([]);
     const [monedaBase, setMonedaBase] = useState('');
     const [time, setTime] = useState('');
-    useEffect(()=>{
+    useEffect(()=>{//Traer por moneda
         const host = 'api.frankfurter.app';
-        fetch(`https://${host}/latest?from=`+selectorMoneda)
+        fetch(`https://${host}/${selectorFecha || 'latest'}?from=${selectorMoneda}`)
         .then(resp => resp.json())
         .then((data) => {
             // Extrae la data del objeto y la transforma a objetos en un arreglo
@@ -33,11 +35,16 @@ const Index = ()=>{
             console.log('GET Error');
             console.log(e);
         });
-    },[selectorMoneda]);
+    },[selectorFecha, selectorMoneda]);
+
+
+ 
+    console.log(selectorFecha);
     return (
         <div>
             <Header/>
             <SelectorMoneda opciones = {nombresMoneda} monedaBase= {monedaBase} setSelectorMoneda={setSelectorMoneda}/>
+            <SelectorFecha selectorFecha={selectorFecha} setSelectorFecha={setSelectorFecha}/>
             {(monedas.length>0)?
                 <div className="contenedorMonedas">
                     {monedas.map((moneda)=>

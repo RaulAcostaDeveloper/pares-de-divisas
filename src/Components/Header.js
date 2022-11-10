@@ -4,6 +4,7 @@ const Header = ()=>{
         <div className='Header'>
             <h1>PARES DE DIVISAS</h1>
             <p>Angel Raúl Acosta</p>
+            <p>Consumo de una Rest API</p>
         </div>
     )
 }

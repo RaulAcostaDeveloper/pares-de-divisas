@@ -1,0 +1,18 @@
+.SelectorFecha{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-size: 20px;
+}
+.SelectorFecha input{
+    margin-left: 10px;
+    font-size: 15px;
+    border: none;
+    -webkit-box-shadow: inset 1px 1px 5px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: inset 1px 1px 5px 0px rgba(0,0,0,0.75);
+    box-shadow: inset 1px 1px 5px 0px rgba(0,0,0,0.75);
+    padding: 5px;
+}

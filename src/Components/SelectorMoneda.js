@@ -9,7 +9,7 @@ const SelectorMoneda = ({opciones, monedaBase, setSelectorMoneda})=>{
         <div className="SelectorMoneda">
             <div className="mensaje">Selector de moneda</div>
             <select value={monedaBase} onChange={(e)=>setSelectorMoneda(e.target.value)} >
-                {monedas.map((el)=><option className="option" key={el} value={el}>{el}</option>)}
+                {monedas.map((el)=><option key={el} value={el}>{el}</option>)}
             </select>
         </div>
     )
